@@ -85,8 +85,11 @@ struct SceneKitView: NSViewRepresentable {
         piRadiusSquared(to: scene, circleRadius: circleRadius, squareSize: squareSize, squareYOffset: squareYOffset, circleLength: circleLength)
         
         // Add new large square based on the adjusted ratio
-        squareTheCircle(to: scene, smallSquareSize: squareSize, squareYOffset: squareYOffset, targetSceneSize: targetSceneSize, circleLength: circleLength)
+        squareTheCircle(to: scene, squareYOffset: squareYOffset, targetSceneSize: targetSceneSize, circleLength: circleLength)
         
+        // Add new square based on the ratio of smaller shapes and golden ratio
+        ratioBasedSquare(to: scene, circleRadius: circleRadius, triangleHeight: triangleHeight, squareYOffset: squareYOffset, circleLength: circleLength)
+
         // Set up the camera (adjust position)
         let camera = SCNCamera()
         let cameraNode = SCNNode()
@@ -153,7 +156,7 @@ struct SceneKitView: NSViewRepresentable {
         scene.rootNode.addChildNode(equalAreaSquareNode)
     }
     
-    private func squareTheCircle(to scene: SCNScene, smallSquareSize: CGFloat, squareYOffset: CGFloat, targetSceneSize: CGFloat, circleLength: CGFloat) {
+    private func squareTheCircle(to scene: SCNScene, squareYOffset: CGFloat, targetSceneSize: CGFloat, circleLength: CGFloat) {
 
         let largeSquare = SCNBox(width: targetSceneSize, height: targetSceneSize, length: circleLength, chamferRadius: 0)
         let largeSquareNode = SCNNode(geometry: largeSquare)
@@ -167,6 +170,35 @@ struct SceneKitView: NSViewRepresentable {
 
         // Print the values for verification
         print("Perspective Method Side Length: \(targetSceneSize)")
+    }
+    
+    private func ratioBasedSquare(to scene: SCNScene, circleRadius: CGFloat, triangleHeight: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat) {
+        let goldenRatio: CGFloat = 1.618
+        
+        // The triangle's base is equal to the circle's diameter
+        let triangleBase = circleRadius * 2
+        
+        // Calculate the area of the triangle
+        let triangleArea = 0.5 * triangleBase * triangleHeight
+        
+        // Adjust the estimation factor to get closer to the correct area
+        let adjustmentFactor: CGFloat = 1.2  // This factor is approximately π / φ
+        let estimatedCircleArea = triangleArea * goldenRatio * adjustmentFactor
+        
+        // Calculate the side length of the square with the estimated area
+        let estimatedSquareSideLength = sqrt(estimatedCircleArea)
+        
+        print("Ratio-based Method Side Length: \(estimatedSquareSideLength)")
+
+        let ratioBasedSquare = SCNBox(width: estimatedSquareSideLength, height: estimatedSquareSideLength, length: circleLength, chamferRadius: 0)
+        let ratioBasedSquareNode = SCNNode(geometry: ratioBasedSquare)
+
+        ratioBasedSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
+
+        ratioBasedSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .magenta, to: .red)
+        ratioBasedSquareNode.geometry?.firstMaterial?.transparency = 0.2
+
+        scene.rootNode.addChildNode(ratioBasedSquareNode)
     }
 }
 
