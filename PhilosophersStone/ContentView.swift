@@ -141,7 +141,7 @@ struct SceneKitView: NSViewRepresentable {
         let equalAreaSquareSideLength = sqrt(largeCircleArea)
         
         // Calculate and log the ratio for verification
-        let smallCircleRadius = squareSize / 2
+        //let smallCircleRadius = squareSize / 2
         //let largeToSmallCircleRatio = circleRadius / smallCircleRadius
         print("Pi R Squared Side Length: \(equalAreaSquareSideLength)")
 
