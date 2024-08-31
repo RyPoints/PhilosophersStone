@@ -6,4 +6,4 @@ Within is a function ``piRadiusSquared()`` that uses pi to calculate a square wi
 
 Then is a function ``squareTheCirce()`` that instead uses the 1.0 perspective of the viewer to calculate the large square's area using rational rather than transcendental math.
 
-And additionally a ratio method is included that uses the ratio of the small square to our large square.
+And additionally a ratio method is included that uses the ratio of the small square to our large square to find it.
