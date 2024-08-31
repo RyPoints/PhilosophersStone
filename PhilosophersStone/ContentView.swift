@@ -227,7 +227,7 @@ struct SceneKitView: NSViewRepresentable {
         let rotationsPerCircle: CGFloat = 0.5
         
         func createSpiralPoints(offset: CGFloat) -> [SCNVector3] {
-            return (12...numCircles * 100).map { i -> SCNVector3 in
+            return (24...numCircles * 100).map { i -> SCNVector3 in
                 let t = CGFloat(i) / 100.0
                 let angle = t * 2 * .pi * rotationsPerCircle + offset
                 let scaleFactor = pow(1 / goldenRatio, t)
