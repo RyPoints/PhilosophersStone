@@ -175,7 +175,7 @@ struct SceneKitView: NSViewRepresentable {
 
         largeSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
 
-        largeSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .red, to: .orange)
+        largeSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .blue, to: .yellow)
         largeSquareNode.geometry?.firstMaterial?.transparency = 0.2
 
         scene.rootNode.addChildNode(largeSquareNode)
@@ -215,7 +215,7 @@ struct SceneKitView: NSViewRepresentable {
 
         ratioBasedSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
 
-        ratioBasedSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .magenta, to: .red)
+        ratioBasedSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .magenta, to: .blue)
         ratioBasedSquareNode.geometry?.firstMaterial?.transparency = 0.2
 
         scene.rootNode.addChildNode(ratioBasedSquareNode)
