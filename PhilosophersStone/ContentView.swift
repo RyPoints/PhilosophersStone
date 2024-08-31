@@ -54,12 +54,14 @@ struct SceneKitView: NSViewRepresentable {
         triangleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .orange, to: .yellow)
         triangleNode.geometry?.firstMaterial?.transparency = 0.5
         
-        // Create square (adjust size and position)
-        let halfBaseAngle = triangleBaseAngle * .pi / 360
-        let squareSize = triangleWidth / (1 + tan(halfBaseAngle))
+        // Calculate square position
+        let triangleBase = 2 * circleRadius * sin(triangleBaseAngle * .pi / 360)
+        let squareSize = (triangleBase * triangleHeight) / (triangleBase + triangleHeight)
         let square = SCNBox(width: squareSize, height: squareSize, length: circleLength, chamferRadius: 0)
         let squareNode = SCNNode(geometry: square)
-        let squareYOffset = triangleYOffset + (squareSize / 2)
+        
+        // Adjust squareYOffset calculation
+        let squareYOffset = triangleYOffset + (squareSize / 2) - (0.035 * scaleFactor)
         squareNode.position = SCNVector3(0, squareYOffset, circleLength / 2)
         squareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .blue, to: .purple)
         squareNode.geometry?.firstMaterial?.transparency = 0.2
@@ -75,8 +77,6 @@ struct SceneKitView: NSViewRepresentable {
         let distanceForFirstCircle: CGFloat = 20.0 * scaleFactor
         let scaleForFirstCircle: CGFloat = squareSize / circleRadius
         
-        // Update the backCircleNode position
-        let circleYOffset = squareYOffset - (0.42 * scaleFactor)
         for i in 0..<numCircles {
             let distance = distanceForFirstCircle + CGFloat(i) * distanceBetweenCircles
             let scale = scaleForFirstCircle / pow(goldenRatio, CGFloat(i))
@@ -85,7 +85,7 @@ struct SceneKitView: NSViewRepresentable {
             backCircleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .purple, to: .blue)
             backCircleNode.geometry?.firstMaterial?.transparency = 0.5
             backCircleNode.eulerAngles = SCNVector3(Double.pi / 2, 0, 0)
-            backCircleNode.position = SCNVector3(0, circleYOffset, -distance)
+            backCircleNode.position = SCNVector3(0, squareYOffset - 0.035, -distance)
             
             scene.rootNode.addChildNode(backCircleNode)
         }
