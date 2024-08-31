@@ -166,7 +166,7 @@ struct SceneKitView: NSViewRepresentable {
         scene.rootNode.addChildNode(largeSquareNode)
 
         // Print the values for verification
-        print("Ratio Side Length: \(targetSceneSize)")
+        print("Perspective Method Side Length: \(targetSceneSize)")
     }
 }
 
