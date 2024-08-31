@@ -4,4 +4,4 @@ The above is a diagram of the Philosophers Stone.   See https://www.philosophers
 
 Within is a function ``piRadiusSquared()`` that uses pi to calculate a square with the same area as the circle using standard methods.
 
-And then is a function ``squareTheCirce()`` that instead uses the ratio of the small square to calculate the large square's area using rational rather than transcental math.
+And then is a function ``squareTheCirce()`` that instead uses the ratio of the small square to calculate the large square's area using rational rather than transcendental math.
