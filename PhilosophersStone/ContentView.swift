@@ -140,9 +140,6 @@ struct SceneKitView: NSViewRepresentable {
         // Calculate the side length of the square with the same area
         let equalAreaSquareSideLength = sqrt(largeCircleArea)
         
-        // Calculate and log the ratio for verification
-        let smallCircleRadius = squareSize / 2
-        //let largeToSmallCircleRatio = circleRadius / smallCircleRadius
         print("Pi R Squared Side Length: \(equalAreaSquareSideLength)")
 
         let equalAreaSquare = SCNBox(width: equalAreaSquareSideLength, height: equalAreaSquareSideLength, length: circleLength, chamferRadius: 0)
@@ -158,8 +155,6 @@ struct SceneKitView: NSViewRepresentable {
     
     private func squareTheCircle(to scene: SCNScene, smallSquareSize: CGFloat, squareYOffset: CGFloat, targetSceneSize: CGFloat, circleLength: CGFloat) {
 
-        // Calculate the ratio based on the targetSceneSize and smallSquareSize
-        let sizeRatio = targetSceneSize / smallSquareSize
         let largeSquare = SCNBox(width: targetSceneSize, height: targetSceneSize, length: circleLength, chamferRadius: 0)
         let largeSquareNode = SCNNode(geometry: largeSquare)
 
