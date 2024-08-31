@@ -30,10 +30,10 @@ struct SceneKitView: NSViewRepresentable {
         
         // Constants adjusted with scale factor
         let circleRadius: CGFloat = 6.0 * scaleFactor
-        let circleHeight: CGFloat = 0.1 * scaleFactor
+        let circleLength: CGFloat = 0.1 * scaleFactor
         
         // Create circle
-        let circle = SCNCylinder(radius: circleRadius, height: circleHeight)
+        let circle = SCNCylinder(radius: circleRadius, height: circleLength)
         let circleNode = SCNNode(geometry: circle)
         circleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .purple, to: .blue)
         circleNode.geometry?.firstMaterial?.transparency = 0.5
@@ -42,18 +42,18 @@ struct SceneKitView: NSViewRepresentable {
         // Create triangle (adjust position)
         let triangleHeight = circleRadius * goldenRatio
         let triangleWidth = circleRadius * sqrt(2)
-        let triangleGeometry = SCNPyramid(width: triangleWidth, height: triangleHeight, length: circleHeight)
+        let triangleGeometry = SCNPyramid(width: triangleWidth, height: triangleHeight, length: circleLength)
         let triangleNode = SCNNode(geometry: triangleGeometry)
-        triangleNode.position = SCNVector3(0, -circleRadius * 0.7, circleHeight / 2)
+        triangleNode.position = SCNVector3(0, -circleRadius * 0.7, circleLength / 2)
         triangleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .orange, to: .yellow)
         triangleNode.geometry?.firstMaterial?.transparency = 0.5
         
         // Create square (adjust size and position)
         let squareSize = triangleWidth * (goldenRatio / 3)
-        let square = SCNBox(width: squareSize, height: squareSize, length: circleHeight, chamferRadius: 0)
+        let square = SCNBox(width: squareSize, height: squareSize, length: circleLength, chamferRadius: 0)
         let squareNode = SCNNode(geometry: square)
         let squareYOffset = -circleRadius * 0.75 + (triangleHeight - squareSize) / 2
-        squareNode.position = SCNVector3(0, squareYOffset, circleHeight / 2)
+        squareNode.position = SCNVector3(0, squareYOffset, circleLength / 2)
         squareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .blue, to: .purple)
         squareNode.geometry?.firstMaterial?.transparency = 0.2
         
@@ -71,7 +71,7 @@ struct SceneKitView: NSViewRepresentable {
         for i in 0..<numCircles {
             let distance = distanceForFirstCircle + CGFloat(i) * distanceBetweenCircles
             let scale = scaleForFirstCircle / pow(goldenRatio, CGFloat(i))
-            let backCircle = SCNCylinder(radius: circleRadius * scale, height: circleHeight)
+            let backCircle = SCNCylinder(radius: circleRadius * scale, height: circleLength)
             let backCircleNode = SCNNode(geometry: backCircle)
             backCircleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .purple, to: .blue)
             backCircleNode.geometry?.firstMaterial?.transparency = 0.5
@@ -82,10 +82,10 @@ struct SceneKitView: NSViewRepresentable {
         }
         
         // Add the new square with the same area as the large circle
-        piRadiusSquared(to: scene, circleRadius: circleRadius, squareSize: squareSize, squareYOffset: squareYOffset, circleHeight: circleHeight)
+        //piRadiusSquared(to: scene, circleRadius: circleRadius, squareSize: squareSize, squareYOffset: squareYOffset, circleHeight: circleHeight)
         
         // Add new large square based on the adjusted ratio
-        squareTheCircle(to: scene, smallSquareSize: squareSize, squareYOffset: squareYOffset, targetSceneSize: targetSceneSize, circleHeight: circleHeight)
+        squareTheCircle(to: scene, smallSquareSize: squareSize, squareYOffset: squareYOffset, targetSceneSize: targetSceneSize, circleLength: circleLength)
         
         // Set up the camera (adjust position)
         let camera = SCNCamera()
@@ -133,7 +133,7 @@ struct SceneKitView: NSViewRepresentable {
         return image
     }
     
-    private func piRadiusSquared(to scene: SCNScene, circleRadius: CGFloat, squareSize: CGFloat, squareYOffset: CGFloat, circleHeight: CGFloat) {
+    private func piRadiusSquared(to scene: SCNScene, circleRadius: CGFloat, squareSize: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat) {
         // Calculate the area of the large circle
         let largeCircleArea = CGFloat.pi * circleRadius * circleRadius
         
@@ -141,14 +141,14 @@ struct SceneKitView: NSViewRepresentable {
         let equalAreaSquareSideLength = sqrt(largeCircleArea)
         
         // Calculate and log the ratio for verification
-        //let smallCircleRadius = squareSize / 2
+        let smallCircleRadius = squareSize / 2
         //let largeToSmallCircleRatio = circleRadius / smallCircleRadius
         print("Pi R Squared Side Length: \(equalAreaSquareSideLength)")
 
-        let equalAreaSquare = SCNBox(width: equalAreaSquareSideLength, height: equalAreaSquareSideLength, length: circleHeight, chamferRadius: 0)
+        let equalAreaSquare = SCNBox(width: equalAreaSquareSideLength, height: equalAreaSquareSideLength, length: circleLength, chamferRadius: 0)
         let equalAreaSquareNode = SCNNode(geometry: equalAreaSquare)
 
-        equalAreaSquareNode.position = SCNVector3(0, squareYOffset, circleHeight * 10)
+        equalAreaSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
 
         equalAreaSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .green, to: .yellow)
         equalAreaSquareNode.geometry?.firstMaterial?.transparency = 0.2
@@ -156,15 +156,14 @@ struct SceneKitView: NSViewRepresentable {
         scene.rootNode.addChildNode(equalAreaSquareNode)
     }
     
-    private func squareTheCircle(to scene: SCNScene, smallSquareSize: CGFloat, squareYOffset: CGFloat, targetSceneSize: CGFloat) {
+    private func squareTheCircle(to scene: SCNScene, smallSquareSize: CGFloat, squareYOffset: CGFloat, targetSceneSize: CGFloat, circleLength: CGFloat) {
 
         // Calculate the ratio based on the targetSceneSize and smallSquareSize
-        //let sizeRatio = targetSceneSize / smallSquareSize
-
-        let largeSquare = SCNBox(width: targetSceneSize, height: targetSceneSize, length: targetSceneSize, chamferRadius: 0)
+        let sizeRatio = targetSceneSize / smallSquareSize
+        let largeSquare = SCNBox(width: targetSceneSize, height: targetSceneSize, length: circleLength, chamferRadius: 0)
         let largeSquareNode = SCNNode(geometry: largeSquare)
 
-        largeSquareNode.position = SCNVector3(0, squareYOffset, targetSceneSize * 10)
+        largeSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
 
         largeSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .red, to: .orange)
         largeSquareNode.geometry?.firstMaterial?.transparency = 0.2
