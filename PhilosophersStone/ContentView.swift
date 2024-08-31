@@ -82,7 +82,7 @@ struct SceneKitView: NSViewRepresentable {
         }
         
         // Add the new square with the same area as the large circle
-        //piRadiusSquared(to: scene, circleRadius: circleRadius, squareSize: squareSize, squareYOffset: squareYOffset, circleHeight: circleHeight)
+        piRadiusSquared(to: scene, circleRadius: circleRadius, squareSize: squareSize, squareYOffset: squareYOffset, circleLength: circleLength)
         
         // Add new large square based on the adjusted ratio
         squareTheCircle(to: scene, smallSquareSize: squareSize, squareYOffset: squareYOffset, targetSceneSize: targetSceneSize, circleLength: circleLength)
