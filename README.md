@@ -1,4 +1,4 @@
-![Screenshot 2024-08-30 at 5 53 44 PM](https://github.com/user-attachments/assets/e200a27a-e2a4-47a2-adf8-3623852a1dd7)
+![PhilosophersStone](https://github.com/user-attachments/assets/f30264e8-9995-459c-876a-a45094941b09)
 
 The above is a diagram of the Philosophers Stone in Swift SceneKit.   See https://en.wikipedia.org/wiki/Squaring_the_circle and https://www.philosophersstone.info/ for more info.
 
