@@ -32,6 +32,9 @@ struct SceneKitView: NSViewRepresentable {
         let circleRadius: CGFloat = 6.0 * scaleFactor
         let circleLength: CGFloat = 0.1 * scaleFactor
         
+        // New variable for triangle base angle (in degrees)
+        let triangleBaseAngle: CGFloat = 82 // Adjust this value between 0 and 180
+
         // Create circle
         let circle = SCNCylinder(radius: circleRadius, height: circleLength)
         let circleNode = SCNNode(geometry: circle)
@@ -39,20 +42,24 @@ struct SceneKitView: NSViewRepresentable {
         circleNode.geometry?.firstMaterial?.transparency = 0.5
         circleNode.eulerAngles = SCNVector3(Double.pi / 2, 0, 0)
         
-        // Create triangle (adjust position)
+        // Create triangle (adjust position and shape)
         let triangleHeight = circleRadius * goldenRatio
-        let triangleWidth = circleRadius * sqrt(2)
+        let triangleWidth = 2 * circleRadius * sin(triangleBaseAngle * .pi / 360)
         let triangleGeometry = SCNPyramid(width: triangleWidth, height: triangleHeight, length: circleLength)
         let triangleNode = SCNNode(geometry: triangleGeometry)
-        triangleNode.position = SCNVector3(0, -circleRadius * 0.7, circleLength / 2)
+        
+        // Calculate triangle position
+        let triangleYOffset = -circleRadius * cos(triangleBaseAngle * .pi / 360)
+        triangleNode.position = SCNVector3(0, triangleYOffset, circleLength / 2)
         triangleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .orange, to: .yellow)
         triangleNode.geometry?.firstMaterial?.transparency = 0.5
         
         // Create square (adjust size and position)
-        let squareSize = triangleWidth * (goldenRatio / 3)
+        let halfBaseAngle = triangleBaseAngle * .pi / 360
+        let squareSize = triangleWidth / (1 + tan(halfBaseAngle))
         let square = SCNBox(width: squareSize, height: squareSize, length: circleLength, chamferRadius: 0)
         let squareNode = SCNNode(geometry: square)
-        let squareYOffset = -circleRadius * 0.75 + (triangleHeight - squareSize) / 2
+        let squareYOffset = triangleYOffset + (squareSize / 2)
         squareNode.position = SCNVector3(0, squareYOffset, circleLength / 2)
         squareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .blue, to: .purple)
         squareNode.geometry?.firstMaterial?.transparency = 0.2
@@ -68,6 +75,8 @@ struct SceneKitView: NSViewRepresentable {
         let distanceForFirstCircle: CGFloat = 20.0 * scaleFactor
         let scaleForFirstCircle: CGFloat = squareSize / circleRadius
         
+        // Update the backCircleNode position
+        let circleYOffset = squareYOffset - (0.42 * scaleFactor)
         for i in 0..<numCircles {
             let distance = distanceForFirstCircle + CGFloat(i) * distanceBetweenCircles
             let scale = scaleForFirstCircle / pow(goldenRatio, CGFloat(i))
@@ -76,7 +85,7 @@ struct SceneKitView: NSViewRepresentable {
             backCircleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .purple, to: .blue)
             backCircleNode.geometry?.firstMaterial?.transparency = 0.5
             backCircleNode.eulerAngles = SCNVector3(Double.pi / 2, 0, 0)
-            backCircleNode.position = SCNVector3(0, squareYOffset, -distance)
+            backCircleNode.position = SCNVector3(0, circleYOffset, -distance)
             
             scene.rootNode.addChildNode(backCircleNode)
         }
