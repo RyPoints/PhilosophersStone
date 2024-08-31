@@ -85,7 +85,7 @@ struct SceneKitView: NSViewRepresentable {
             backCircleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .purple, to: .blue)
             backCircleNode.geometry?.firstMaterial?.transparency = 0.5
             backCircleNode.eulerAngles = SCNVector3(Double.pi / 2, 0, 0)
-            backCircleNode.position = SCNVector3(0, squareYOffset - 0.035, -distance)
+            backCircleNode.position = SCNVector3(0, squareYOffset - (0.035 * targetSceneSize), -distance)
             
             scene.rootNode.addChildNode(backCircleNode)
         }
