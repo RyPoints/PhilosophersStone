@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		E2FF19C62C829E1F007B80CE /* PhilosophersStoneApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FF19C52C829E1F007B80CE /* PhilosophersStoneApp.swift */; };
 		E2FF19C82C829E1F007B80CE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FF19C72C829E1F007B80CE /* ContentView.swift */; };
-		E2FF19CA2C829E1F007B80CE /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2FF19C92C829E1F007B80CE /* Item.swift */; };
 		E2FF19CC2C829E1F007B80CE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FF19CB2C829E1F007B80CE /* Assets.xcassets */; };
 		E2FF19CF2C829E1F007B80CE /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2FF19CE2C829E1F007B80CE /* Preview Assets.xcassets */; };
 /* End PBXBuildFile section */
@@ -18,7 +17,6 @@
 		E2FF19C22C829E1F007B80CE /* PhilosophersStone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhilosophersStone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FF19C52C829E1F007B80CE /* PhilosophersStoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilosophersStoneApp.swift; sourceTree = "<group>"; };
 		E2FF19C72C829E1F007B80CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		E2FF19C92C829E1F007B80CE /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		E2FF19CB2C829E1F007B80CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2FF19CE2C829E1F007B80CE /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E2FF19D02C829E1F007B80CE /* PhilosophersStone.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = PhilosophersStone.entitlements; sourceTree = "<group>"; };
@@ -56,7 +54,6 @@
 			children = (
 				E2FF19C52C829E1F007B80CE /* PhilosophersStoneApp.swift */,
 				E2FF19C72C829E1F007B80CE /* ContentView.swift */,
-				E2FF19C92C829E1F007B80CE /* Item.swift */,
 				E2FF19CB2C829E1F007B80CE /* Assets.xcassets */,
 				E2FF19D02C829E1F007B80CE /* PhilosophersStone.entitlements */,
 				E2FF19CD2C829E1F007B80CE /* Preview Content */,
@@ -143,7 +140,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				E2FF19C82C829E1F007B80CE /* ContentView.swift in Sources */,
-				E2FF19CA2C829E1F007B80CE /* Item.swift in Sources */,
 				E2FF19C62C829E1F007B80CE /* PhilosophersStoneApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
