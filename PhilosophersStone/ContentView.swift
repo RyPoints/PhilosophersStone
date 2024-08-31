@@ -61,7 +61,7 @@ struct SceneKitView: NSViewRepresentable {
         let squareNode = SCNNode(geometry: square)
         
         // Adjust squareYOffset calculation
-        let squareYOffset = triangleYOffset + (squareSize / 2) - (0.035 * scaleFactor)
+        let squareYOffset = triangleYOffset + (squareSize / 2) + 0.001
         squareNode.position = SCNVector3(0, squareYOffset, circleLength / 2)
         squareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .blue, to: .purple)
         squareNode.geometry?.firstMaterial?.transparency = 0.2
