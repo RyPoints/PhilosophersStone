@@ -191,7 +191,15 @@ struct SceneKitView: NSViewRepresentable {
         let triangleArea = 0.5 * triangleBase * triangleHeight
         
         // Adjust the estimation factor to get closer to the correct area
-        let adjustmentFactor: CGFloat = 1.2  // This factor is approximately π / φ
+        let adjustmentFactor: CGFloat = 1.2
+        /* 
+         The 1.2 factor, when combined with φ², very closely approximates π in this specific geometric context. The 1.2 factor emerges as the value that, when multiplied by φ², gives us a close approximation of π.
+        This relationship is specific to this geometric setup where:
+        The triangle's height is based on the golden ratio
+        The triangle's area is being used to estimate the circle's area
+        The golden ratio is being used again in the area estimation
+        The 1.2 factor effectively "corrects" for the discrepancies introduced by using the golden ratio-based triangle to estimate the circle's area. Thus a simple factor (1.2) can bridge the gap between these complex geometric relationships involving π and φ.
+         */
         let estimatedCircleArea = triangleArea * goldenRatio * adjustmentFactor
         
         // Calculate the side length of the square with the estimated area
