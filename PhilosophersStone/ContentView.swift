@@ -85,7 +85,7 @@ struct SceneKitView: NSViewRepresentable {
             backCircleNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .purple, to: .blue)
             backCircleNode.geometry?.firstMaterial?.transparency = 0.5
             backCircleNode.eulerAngles = SCNVector3(Double.pi / 2, 0, 0)
-            backCircleNode.position = SCNVector3(0, squareYOffset - (0.035 * targetSceneSize), -distance)
+            backCircleNode.position = SCNVector3(0, squareYOffset, -distance)
             
             scene.rootNode.addChildNode(backCircleNode)
         }
@@ -103,7 +103,7 @@ struct SceneKitView: NSViewRepresentable {
         let camera = SCNCamera()
         let cameraNode = SCNNode()
         cameraNode.camera = camera
-        cameraNode.position = SCNVector3(0, -2 * scaleFactor, 20 * scaleFactor)
+        cameraNode.position = SCNVector3(0, -2.4 * scaleFactor, 20 * scaleFactor) // Moved up slightly
         scene.rootNode.addChildNode(cameraNode)
         
         // Set up lighting (adjust position)
