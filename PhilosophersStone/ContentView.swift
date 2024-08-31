@@ -224,10 +224,10 @@ struct SceneKitView: NSViewRepresentable {
     private func addSpiralOverlay(to scene: SCNScene, circleRadius: CGFloat, numCircles: Int, distanceBetweenCircles: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat, scaleFactor: CGFloat) {
         let goldenRatio: CGFloat = 1.618
         let initialSpiralRadius: CGFloat = circleRadius * 0.5
-        let rotationsPerCircle: CGFloat = 1.0
+        let rotationsPerCircle: CGFloat = 0.5 // Changed from 1.0 to 0.5
         
         func createSpiralPoints(offset: CGFloat) -> [SCNVector3] {
-            return (24...numCircles * 100).map { i -> SCNVector3 in
+            return (12...numCircles * 100).map { i -> SCNVector3 in
                 let t = CGFloat(i) / 100.0
                 let angle = t * 2 * .pi * rotationsPerCircle + offset
                 let scaleFactor = pow(1 / goldenRatio, t)
