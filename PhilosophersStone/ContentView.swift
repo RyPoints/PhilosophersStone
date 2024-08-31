@@ -90,6 +90,9 @@ struct SceneKitView: NSViewRepresentable {
             scene.rootNode.addChildNode(backCircleNode)
         }
         
+        // Add the spiral overlay
+        addSpiralOverlay(to: scene, circleRadius: circleRadius, numCircles: numCircles, distanceBetweenCircles: distanceBetweenCircles, squareYOffset: squareYOffset, circleLength: circleLength, scaleFactor: scaleFactor)
+        
         // Add the new square with the same area as the large circle
         piRadiusSquared(to: scene, circleRadius: circleRadius, squareSize: squareSize, squareYOffset: squareYOffset, circleLength: circleLength)
         
@@ -216,6 +219,58 @@ struct SceneKitView: NSViewRepresentable {
         ratioBasedSquareNode.geometry?.firstMaterial?.transparency = 0.2
 
         scene.rootNode.addChildNode(ratioBasedSquareNode)
+    }
+    
+    private func addSpiralOverlay(to scene: SCNScene, circleRadius: CGFloat, numCircles: Int, distanceBetweenCircles: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat, scaleFactor: CGFloat) {
+        let goldenRatio: CGFloat = 1.618
+        let initialSpiralRadius: CGFloat = circleRadius * 0.5
+        let rotationsPerCircle: CGFloat = 1.0
+        
+        func createSpiralPoints(offset: CGFloat) -> [SCNVector3] {
+            return (24...numCircles * 100).map { i -> SCNVector3 in
+                let t = CGFloat(i) / 100.0
+                let angle = t * 2 * .pi * rotationsPerCircle + offset
+                let scaleFactor = pow(1 / goldenRatio, t)
+                let currentRadius = initialSpiralRadius * scaleFactor
+                let x = currentRadius * cos(angle)
+                let y = currentRadius * sin(angle) + squareYOffset
+                let z = -t * distanceBetweenCircles
+                return SCNVector3(x, y, z)
+            }
+        }
+        
+        let spiralPoints1 = createSpiralPoints(offset: 0)
+        let spiralPoints2 = createSpiralPoints(offset: .pi)
+        
+        let blueColor = NSColor(calibratedRed: 0.0, green: 0.0, blue: 1.0, alpha: 0.8)
+        
+        let geometry1 = SCNGeometry.line(points: spiralPoints1, color: blueColor)
+        let geometry2 = SCNGeometry.line(points: spiralPoints2, color: blueColor)
+        
+        let node1 = SCNNode(geometry: geometry1)
+        let node2 = SCNNode(geometry: geometry2)
+        
+        node1.position = SCNVector3(0, 0, circleLength / 2)
+        node2.position = SCNVector3(0, 0, circleLength / 2)
+        
+        scene.rootNode.addChildNode(node1)
+        scene.rootNode.addChildNode(node2)
+    }
+}
+
+extension SCNGeometry {
+    class func line(points: [SCNVector3], color: NSColor) -> SCNGeometry {
+        let source = SCNGeometrySource(vertices: points)
+        let element = SCNGeometryElement(indices: Array(0..<Int32(points.count)), primitiveType: .line)
+        let geometry = SCNGeometry(sources: [source], elements: [element])
+        
+        let material = SCNMaterial()
+        material.diffuse.contents = color
+        material.emission.contents = color
+        material.transparency = CGFloat(color.alphaComponent)
+        geometry.materials = [material]
+        
+        return geometry
     }
 }
 
