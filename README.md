@@ -1,4 +1,4 @@
-![PhilosophersStone](https://github.com/user-attachments/assets/efddfcf2-165a-4ce1-859f-576a9d05bdd5)
+![PhilosophersStone](https://github.com/user-attachments/assets/c510c723-7244-41f2-8ae3-bbcee274830e)
 
 ## Squaring the Circle
 The above is a diagram of the Philosophers Stone in Swift SceneKit.   See https://en.wikipedia.org/wiki/Squaring_the_circle and https://www.philosophersstone.info/ for more info.
@@ -7,7 +7,7 @@ Within is a function ``piRadiusSquared()`` that uses pi to calculate a square wi
 
 Then is a function ``squareTheCirce()`` that instead uses the 1.0 perspective of the viewer to calculate the large square's area using rational rather than transcendental math.
 
-And additionally a ratio method is included that uses the ratio of the triangle to the large circle and the golden ratio to find it.
+And additionally a ``ratioMethod()`` is included that uses the ratio of the triangle to the large circle and the golden ratio to find it.
 
 **Ryan**: Based on the 1.2 value method of solving it, do you think it would be possible to draw an accurate large square to the limits of human visual precision using only a compass and a straightedge with everything in this diagram except the large squares?
 
