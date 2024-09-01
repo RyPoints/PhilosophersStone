@@ -17,7 +17,7 @@ And additionally a ``ratioMethod()`` is included that uses the ratio of the tria
 
 2. Use the relationship between the circle's radius, the triangle's height, and the golden ratio to estimate the area of the circle.
 
-3. Apply the 1.2 factor adjustment to this estimation, which, as noted in the code comments, provides a very close approximation to π when combined with φ² (phi squared, where phi is the golden ratio).
+3. Apply the 1.2 factor adjustment to this estimation, which, as noted in the code comments, provides a very close approximation to π when combined with φ (phi, where phi is the golden ratio).
 
 4. Use this adjusted area to calculate the side length of the large square.
 
