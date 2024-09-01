@@ -102,9 +102,6 @@ struct SceneKitView: NSViewRepresentable {
         // Add new square based on the ratio of smaller shapes and golden ratio
         ratioBasedSquare(to: scene, circleRadius: circleRadius, triangleHeight: triangleHeight, squareYOffset: squareYOffset, circleLength: circleLength)
         
-        // Add new square based on the ratio of smaller shapes and golden ratio from the small square
-        //ratioBasedSquareFromSmallSquare(to: scene, squareSize: squareSize, squareYOffset: squareYOffset, circleLength: circleLength)
-        
         // Set up the camera (adjust position)
         let camera = SCNCamera()
         let cameraNode = SCNNode()
@@ -209,7 +206,7 @@ struct SceneKitView: NSViewRepresentable {
         let estimatedCircleArea = triangleArea * goldenRatio * adjustmentFactor
         
         // Calculate the side length of the square with the estimated area
-        let estimatedSquareSideLength = sqrt(estimatedCircleArea)
+        let estimatedSquareSideLength = sqrt(estimatedCircleArea) // An actual Rennsiance geometer would use the geometric mean instead, but our square root gets us to the same estimation.
         
         print("Ratio-based Method Side Length: \(estimatedSquareSideLength)")
         
@@ -223,25 +220,7 @@ struct SceneKitView: NSViewRepresentable {
         
         scene.rootNode.addChildNode(ratioBasedSquareNode)
     }
-        // private func ratioBasedSquareFromSmallSquare(to scene: SCNScene, squareSize: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat) {
-    //     let goldenRatio: CGFloat = 1.618
-        
-    //     // Improved calculation for the ratio-based square side length
-    //     let ratioBasedSquareSideLength = squareSize * pow(goldenRatio, 13.0/7.0)
-        
-    //     print("Ratio-based Method from Small Square Side Length: \(ratioBasedSquareSideLength)")
-        
-    //     let ratioBasedSquare = SCNBox(width: ratioBasedSquareSideLength, height: ratioBasedSquareSideLength, length: circleLength, chamferRadius: 0)
-    //     let ratioBasedSquareNode = SCNNode(geometry: ratioBasedSquare)
-        
-    //     ratioBasedSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
-        
-    //     ratioBasedSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .magenta, to: .blue)
-    //     ratioBasedSquareNode.geometry?.firstMaterial?.transparency = 0.2
-        
-    //     scene.rootNode.addChildNode(ratioBasedSquareNode)
-    // }
-    
+
     private func addSpiralOverlay(to scene: SCNScene, circleRadius: CGFloat, numCircles: Int, distanceBetweenCircles: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat, scaleFactor: CGFloat) {
         let goldenRatio: CGFloat = 1.618
         let initialSpiralRadius: CGFloat = circleRadius
