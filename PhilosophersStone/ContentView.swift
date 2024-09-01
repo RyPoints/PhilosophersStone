@@ -101,7 +101,10 @@ struct SceneKitView: NSViewRepresentable {
         
         // Add new square based on the ratio of smaller shapes and golden ratio
         ratioBasedSquare(to: scene, circleRadius: circleRadius, triangleHeight: triangleHeight, squareYOffset: squareYOffset, circleLength: circleLength)
-
+        
+        // Add new square based on the ratio of smaller shapes and golden ratio from the small square
+        //ratioBasedSquareFromSmallSquare(to: scene, squareSize: squareSize, squareYOffset: squareYOffset, circleLength: circleLength)
+        
         // Set up the camera (adjust position)
         let camera = SCNCamera()
         let cameraNode = SCNNode()
@@ -156,30 +159,30 @@ struct SceneKitView: NSViewRepresentable {
         let equalAreaSquareSideLength = sqrt(largeCircleArea)
         
         print("Pi R Squared Side Length: \(equalAreaSquareSideLength)")
-
+        
         let equalAreaSquare = SCNBox(width: equalAreaSquareSideLength, height: equalAreaSquareSideLength, length: circleLength, chamferRadius: 0)
         let equalAreaSquareNode = SCNNode(geometry: equalAreaSquare)
-
+        
         equalAreaSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
-
+        
         equalAreaSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .green, to: .yellow)
         equalAreaSquareNode.geometry?.firstMaterial?.transparency = 0.2
-
+        
         scene.rootNode.addChildNode(equalAreaSquareNode)
     }
     
     private func squareTheCircle(to scene: SCNScene, squareYOffset: CGFloat, targetSceneSize: CGFloat, circleLength: CGFloat) {
-
+        
         let largeSquare = SCNBox(width: targetSceneSize, height: targetSceneSize, length: circleLength, chamferRadius: 0)
         let largeSquareNode = SCNNode(geometry: largeSquare)
-
+        
         largeSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
-
+        
         largeSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .blue, to: .yellow)
         largeSquareNode.geometry?.firstMaterial?.transparency = 0.2
-
+        
         scene.rootNode.addChildNode(largeSquareNode)
-
+        
         // Print the values for verification
         print("Perspective Method Side Length: \(targetSceneSize)")
     }
@@ -194,14 +197,14 @@ struct SceneKitView: NSViewRepresentable {
         let triangleArea = 0.5 * triangleBase * triangleHeight
         
         // Adjust the estimation factor to get closer to the correct area
-        let adjustmentFactor: CGFloat = 1.2
-        /* 
+        let adjustmentFactor: CGFloat =  1.2 //1.2 will go to 0.999986 and 1.200032 will go to .9999998 and 1.20003203056 goes to 0.9999999999971295 and 7500200191043059/6250000000000000 gives 1.0
+        /*
          The 1.2 factor, when combined with φ², very closely approximates π in this specific geometric context. The 1.2 factor emerges as the value that, when multiplied by φ², gives us a close approximation of π.
-        This relationship is specific to this geometric setup where:
-        The triangle's height is based on the golden ratio
-        The triangle's area is being used to estimate the circle's area
-        The golden ratio is being used again in the area estimation
-        The 1.2 factor effectively "corrects" for the discrepancies introduced by using the golden ratio-based triangle to estimate the circle's area. Thus a simple factor (1.2) can bridge the gap between these complex geometric relationships involving π and φ.
+         This relationship is specific to this geometric setup where:
+         The triangle's height is based on the golden ratio
+         The triangle's area is being used to estimate the circle's area
+         The golden ratio is being used again in the area estimation
+         The 1.2 factor effectively "corrects" for the discrepancies introduced by using the golden ratio-based triangle to estimate the circle's area. Thus a simple factor (1.2) can bridge the gap between these complex geometric relationships involving π and φ.
          */
         let estimatedCircleArea = triangleArea * goldenRatio * adjustmentFactor
         
@@ -209,21 +212,39 @@ struct SceneKitView: NSViewRepresentable {
         let estimatedSquareSideLength = sqrt(estimatedCircleArea)
         
         print("Ratio-based Method Side Length: \(estimatedSquareSideLength)")
-
+        
         let ratioBasedSquare = SCNBox(width: estimatedSquareSideLength, height: estimatedSquareSideLength, length: circleLength, chamferRadius: 0)
         let ratioBasedSquareNode = SCNNode(geometry: ratioBasedSquare)
-
+        
         ratioBasedSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
-
+        
         ratioBasedSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .magenta, to: .blue)
         ratioBasedSquareNode.geometry?.firstMaterial?.transparency = 0.2
-
+        
         scene.rootNode.addChildNode(ratioBasedSquareNode)
     }
+        // private func ratioBasedSquareFromSmallSquare(to scene: SCNScene, squareSize: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat) {
+    //     let goldenRatio: CGFloat = 1.618
+        
+    //     // Improved calculation for the ratio-based square side length
+    //     let ratioBasedSquareSideLength = squareSize * pow(goldenRatio, 13.0/7.0)
+        
+    //     print("Ratio-based Method from Small Square Side Length: \(ratioBasedSquareSideLength)")
+        
+    //     let ratioBasedSquare = SCNBox(width: ratioBasedSquareSideLength, height: ratioBasedSquareSideLength, length: circleLength, chamferRadius: 0)
+    //     let ratioBasedSquareNode = SCNNode(geometry: ratioBasedSquare)
+        
+    //     ratioBasedSquareNode.position = SCNVector3(0, squareYOffset, circleLength * 10)
+        
+    //     ratioBasedSquareNode.geometry?.firstMaterial?.diffuse.contents = createGradientImage(from: .magenta, to: .blue)
+    //     ratioBasedSquareNode.geometry?.firstMaterial?.transparency = 0.2
+        
+    //     scene.rootNode.addChildNode(ratioBasedSquareNode)
+    // }
     
     private func addSpiralOverlay(to scene: SCNScene, circleRadius: CGFloat, numCircles: Int, distanceBetweenCircles: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat, scaleFactor: CGFloat) {
         let goldenRatio: CGFloat = 1.618
-        let initialSpiralRadius: CGFloat = circleRadius 
+        let initialSpiralRadius: CGFloat = circleRadius
         let rotationsPerCircle: CGFloat = 0.5
         
         func createSpiralPoints(offset: CGFloat) -> [SCNVector3] {
@@ -257,7 +278,7 @@ struct SceneKitView: NSViewRepresentable {
         scene.rootNode.addChildNode(node2)
     }
 }
-
+    
 extension SCNGeometry {
     class func line(points: [SCNVector3], color: NSColor) -> SCNGeometry {
         let source = SCNGeometrySource(vertices: points)
@@ -268,6 +289,20 @@ extension SCNGeometry {
         material.diffuse.contents = color
         material.emission.contents = color
         material.transparency = CGFloat(color.alphaComponent)
+        geometry.materials = [material]
+        
+        return geometry
+    }
+    
+    class func line(from startPoint: SCNVector3, to endPoint: SCNVector3, color: NSColor, width: CGFloat) -> SCNGeometry {
+        let vertices: [SCNVector3] = [startPoint, endPoint]
+        let source = SCNGeometrySource(vertices: vertices)
+        let element = SCNGeometryElement(indices: [0, 1], primitiveType: .line)
+        
+        let geometry = SCNGeometry(sources: [source], elements: [element])
+        let material = SCNMaterial()
+        material.diffuse.contents = color
+        material.emission.contents = color
         geometry.materials = [material]
         
         return geometry
