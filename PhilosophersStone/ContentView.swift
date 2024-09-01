@@ -194,7 +194,7 @@ struct SceneKitView: NSViewRepresentable {
         let triangleArea = 0.5 * triangleBase * triangleHeight
         
         // Adjust the estimation factor to get closer to the correct area
-        let adjustmentFactor: CGFloat =  1.2 //1.2 will go to 0.999986 and 1.200032 will go to .9999998 and 1.20003203056 goes to 0.9999999999971295 and 7500200191043059/6250000000000000 gives 1.0
+        let adjustmentFactor: CGFloat =  1.2 // 1.2 will go to 0.999986 and 1.200032 will go to .9999998 and 1.20003203056 goes to 0.9999999999971295 and 7500200191043059/6250000000000000 gives 1.0
         /*
          The 1.2 factor, when combined with φ², very closely approximates π in this specific geometric context. The 1.2 factor emerges as the value that, when multiplied by φ², gives us a close approximation of π.
          This relationship is specific to this geometric setup where:
@@ -206,7 +206,7 @@ struct SceneKitView: NSViewRepresentable {
         let estimatedCircleArea = triangleArea * goldenRatio * adjustmentFactor
         
         // Calculate the side length of the square with the estimated area
-        let estimatedSquareSideLength = sqrt(estimatedCircleArea) // An actual Rennsiance geometer would use the geometric mean instead, but our square root gets us to the same estimation.
+        let estimatedSquareSideLength = sqrt(estimatedCircleArea) // An actual Renaissance geometer would use the geometric mean instead, but our square root gets us to the same estimation.
         
         print("Ratio-based Method Side Length: \(estimatedSquareSideLength)")
         
