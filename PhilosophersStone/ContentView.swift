@@ -100,7 +100,7 @@ struct SceneKitView: NSViewRepresentable {
         squareTheCircle(to: scene, squareYOffset: squareYOffset, targetSceneSize: targetSceneSize, circleLength: circleLength)
         
         // Add new square based on the ratio of smaller shapes and golden ratio
-        ratioBasedSquare(to: scene, circleRadius: circleRadius, triangleHeight: triangleHeight, squareYOffset: squareYOffset, circleLength: circleLength)
+        ratioMethod(to: scene, circleRadius: circleRadius, triangleHeight: triangleHeight, squareYOffset: squareYOffset, circleLength: circleLength)
         
         // Set up the camera (adjust position)
         let camera = SCNCamera()
@@ -184,7 +184,7 @@ struct SceneKitView: NSViewRepresentable {
         print("Perspective Method Side Length: \(targetSceneSize)")
     }
     
-    private func ratioBasedSquare(to scene: SCNScene, circleRadius: CGFloat, triangleHeight: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat) {
+    private func ratioMethod(to scene: SCNScene, circleRadius: CGFloat, triangleHeight: CGFloat, squareYOffset: CGFloat, circleLength: CGFloat) {
         let goldenRatio: CGFloat = 1.618
         
         // The triangle's base is equal to the circle's diameter

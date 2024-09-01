@@ -14,7 +14,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		E2FF19C22C829E1F007B80CE /* PhilosophersStone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PhilosophersStone.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		E2FF19C22C829E1F007B80CE /* Philosophers Stone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Philosophers Stone.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2FF19C52C829E1F007B80CE /* PhilosophersStoneApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhilosophersStoneApp.swift; sourceTree = "<group>"; };
 		E2FF19C72C829E1F007B80CE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		E2FF19CB2C829E1F007B80CE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -44,7 +44,7 @@
 		E2FF19C32C829E1F007B80CE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				E2FF19C22C829E1F007B80CE /* PhilosophersStone.app */,
+				E2FF19C22C829E1F007B80CE /* Philosophers Stone.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -72,9 +72,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		E2FF19C12C829E1F007B80CE /* PhilosophersStone */ = {
+		E2FF19C12C829E1F007B80CE /* Philosophers Stone */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = E2FF19D32C829E1F007B80CE /* Build configuration list for PBXNativeTarget "PhilosophersStone" */;
+			buildConfigurationList = E2FF19D32C829E1F007B80CE /* Build configuration list for PBXNativeTarget "Philosophers Stone" */;
 			buildPhases = (
 				E2FF19BE2C829E1F007B80CE /* Sources */,
 				E2FF19BF2C829E1F007B80CE /* Frameworks */,
@@ -84,9 +84,9 @@
 			);
 			dependencies = (
 			);
-			name = PhilosophersStone;
+			name = "Philosophers Stone";
 			productName = PhilosophersStone;
-			productReference = E2FF19C22C829E1F007B80CE /* PhilosophersStone.app */;
+			productReference = E2FF19C22C829E1F007B80CE /* Philosophers Stone.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +104,7 @@
 					};
 				};
 			};
-			buildConfigurationList = E2FF19BD2C829E1F007B80CE /* Build configuration list for PBXProject "PhilosophersStone" */;
+			buildConfigurationList = E2FF19BD2C829E1F007B80CE /* Build configuration list for PBXProject "Philosophers Stone" */;
 			compatibilityVersion = "Xcode 14.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -117,7 +117,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				E2FF19C12C829E1F007B80CE /* PhilosophersStone */,
+				E2FF19C12C829E1F007B80CE /* Philosophers Stone */,
 			);
 		};
 /* End PBXProject section */
@@ -324,7 +324,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		E2FF19BD2C829E1F007B80CE /* Build configuration list for PBXProject "PhilosophersStone" */ = {
+		E2FF19BD2C829E1F007B80CE /* Build configuration list for PBXProject "Philosophers Stone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2FF19D12C829E1F007B80CE /* Debug */,
@@ -333,7 +333,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		E2FF19D32C829E1F007B80CE /* Build configuration list for PBXNativeTarget "PhilosophersStone" */ = {
+		E2FF19D32C829E1F007B80CE /* Build configuration list for PBXNativeTarget "Philosophers Stone" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				E2FF19D42C829E1F007B80CE /* Debug */,
