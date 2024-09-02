@@ -9,6 +9,8 @@ Then is a function ``squareTheCirce()`` that instead uses the 1.0 perspective of
 
 And additionally a ``ratioMethod()`` is included that uses the ratio of the triangle to the large circle and the golden ratio to find it.
 
+So this diagram has three partially transparent large squares that overlap and look like the same large square.
+
 **Ryan**: Based on the 1.2 value method of solving it, do you think it would be possible to draw an accurate large square to the limits of human visual precision using only a compass and a straightedge with everything in this diagram except the large squares?
 
 **Claude**: Based on the information provided in the code and your question, it seems possible to draw a reasonably accurate large square using only a compass and straightedge, leveraging the geometric relationships present in the diagram. Here's a theoretical approach:
