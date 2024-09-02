@@ -25,6 +25,10 @@ And additionally a ``ratioMethod()`` is included that uses the ratio of the tria
 
 The accuracy of this method would be quite high, likely within the limits of human visual precision for most practical purposes. The code shows that this approach yields a very close approximation to the actual area of the circle.
 
+## Relevant Equation
+
+1.2 * φ² = 3.1415088
+
 ## Historical Context
 
 **Ryan**: Explain why this 1.2 method or 6 to 5 ratio was accessible to a Renaissance geometer to square the circle while the π method was not.
