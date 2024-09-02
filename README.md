@@ -44,3 +44,5 @@ In contrast, the π method was not accessible because:
 3. **Complex calculations**: Working directly with π often involves more complex calculations that were difficult or impractical with the mathematical tools available during the Renaissance.
 
 The 6:5 ratio method, therefore, provided a practical, geometrically constructible, and reasonably accurate approach to the classic problem of squaring the circle, aligning well with the mathematical capabilities and philosophical interests of Renaissance geometers.
+
+![Wormhole](https://github.com/user-attachments/assets/7594175c-2b29-4a21-b72c-941ba651400b)
