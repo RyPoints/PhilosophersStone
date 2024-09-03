@@ -29,7 +29,7 @@ The accuracy of this method would be quite high, likely within the limits of hum
 
 ## Relevant Equation
 
-1.2 * φ² ≈ 3.1415...
+1.2 * φ² ≈ π
 
 ## Historical Context
 
