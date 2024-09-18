@@ -31,6 +31,14 @@ The accuracy of this method would be quite high, likely within the limits of hum
 
 1.2 * φ² ≈ π
 
+## Output
+
+```
+Pi R Squared Side Length: 0.9999999999999999
+Perspective Method Side Length: 1.0
+Ratio-based Method Side Length: 0.9999866541976332
+```
+
 ## Historical Context
 
 **Ryan**: Explain why this 1.2 method or 6 to 5 ratio was accessible to a Renaissance geometer to square the circle while the π method was not.
