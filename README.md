@@ -66,6 +66,8 @@ The key insight is that the Renaissance solution wasn't "wrong" - it was simply 
 
 Your code actually demonstrates this through the ``ratioMethod`` function.
 
+Ryan: It also demonstrates this via the picture of the application at the top, because if you really zoom in the ``1.0`` has one more pixel, but pi and phi are identical in pixels because the ``.9999`` in both is just short of the ``1.0``, so pi and phi are also indistinguishable at the scale of human craftsmanship and measurement in the picture.
+
 ## Historical Context
 
 **Ryan**: Explain why this 1.2 method or 6 to 5 ratio was accessible to a Renaissance geometer to square the circle while the π method was not.
