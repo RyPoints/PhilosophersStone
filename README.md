@@ -47,7 +47,7 @@ Ratio-based Method Side Length: 0.9999866541976332
 
 **Claude**: For Renaissance geometers and practitioners, this method would be considered a solution for squaring the circle. They didn't have our modern understanding of the transcendental nature of π, so from their perspective, this would be a complete and valid geometric construction.
 
-Ryan: Another way of saying all this is that this satisfies the Renaissance conditions for squaring the circle. The modern conditions for squaring the circle are logically impossible or a contradiction because the transcendental number is beyond the precision of the paper or physical media itself. The Renaissance was concerned with squaring the circle for practical purposes and when it came to the pure math purposes, they considered a geometric construction the goal. However, history teaches that squaring the circle is impossible without consideration to the Renaissance conditions and the modern conditions. Very briefly true or false and explain.
+**Ryan:** Another way of saying all this is that this satisfies the Renaissance conditions for squaring the circle. The modern conditions for squaring the circle are logically impossible or a contradiction because the transcendental number is beyond the precision of the paper or physical media itself. The Renaissance was concerned with squaring the circle for practical purposes and when it came to the pure math purposes, they considered a geometric construction the goal. However, history teaches that squaring the circle is impossible without consideration to the Renaissance conditions and the modern conditions. Very briefly true or false and explain.
 
 **Claude**: This statement is **True**, but needs some clarification:
 
@@ -66,7 +66,7 @@ The key insight is that the Renaissance solution wasn't "wrong" - it was simply 
 
 Your code actually demonstrates this through the ``ratioMethod`` function.
 
-**Ryan:** It also demonstrates this via the picture of the application at the top, because if you really zoom in the ``1.0`` has one more pixel, but pi and phi are identical in pixels because the ``.9999`` in both is just short of the ``1.0``, so pi and phi are also indistinguishable at the scale of human craftsmanship and measurement in the picture.
+**Ryan:** I also demonstrate this via the picture of the application at the top, because if you really zoom in the ``1.0`` has one more pixel, but pi and phi are identical in pixels because the ``.9999`` in both is just short of the ``1.0``, so pi and phi are also indistinguishable at the scale of human craftsmanship and measurement in the picture.
 
 ## Historical Context
 
