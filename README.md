@@ -83,3 +83,16 @@ In contrast, the π method was not accessible because:
 The 6:5 ratio method, therefore, provided a practical, geometrically constructible, and reasonably accurate approach to the classic problem of squaring the circle, aligning well with the mathematical capabilities and philosophical interests of Renaissance geometers.
 
 ![Wormhole](https://github.com/user-attachments/assets/7594175c-2b29-4a21-b72c-941ba651400b)
+
+## Citation Information
+
+To cite this work in academic papers or publications, please use the following format:
+
+**APA Style:**
+Davis, R. S. (2024). The Philosophers Stone: Squaring the Circle [Source code]. https://github.com/RyPoints/PhilosophersStone/
+
+**MLA Style:**
+Davis, Ryan Solomon. The Philosophers Stone: Squaring the Circle. 2024, https://github.com/RyPoints/PhilosophersStone/
+
+**Chicago Style:**
+Davis, Ryan Solomon. The Philosophers Stone: Squaring the Circle. 2024. https://github.com/RyPoints/PhilosophersStone/
