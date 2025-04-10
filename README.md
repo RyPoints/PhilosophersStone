@@ -1,7 +1,7 @@
 ![PhilosophersStone](https://github.com/user-attachments/assets/c510c723-7244-41f2-8ae3-bbcee274830e)
 
 ## Squaring the Circle
-The above is a diagram of the Philosophers Stone in Swift SceneKit.   See https://en.wikipedia.org/wiki/Squaring_the_circle and https://www.philosophersstone.info/ for more info.
+The above is a diagram of the Philosopher's Stone in Swift SceneKit.   See https://en.wikipedia.org/wiki/Squaring_the_circle and https://www.philosophersstone.info/ for more info.
 
 Within is a function ``piRadiusSquared()`` that uses pi to calculate a square with the same area as the circle using standard methods.
 
