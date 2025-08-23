@@ -114,7 +114,7 @@ To cite this work in academic papers or publications, please use the following f
 Cohen/Davis, R. S. (2024). The Philosopher's Stone: Squaring the Circle [Source code]. https://github.com/RyPoints/PhilosophersStone/
 
 **MLA Style:**
-Coheb/Davis, Ryan Solomon. The Philosopher's Stone: Squaring the Circle. 2024, https://github.com/RyPoints/PhilosophersStone/
+Cohen/Davis, Ryan Solomon. The Philosopher's Stone: Squaring the Circle. 2024, https://github.com/RyPoints/PhilosophersStone/
 
 **Chicago Style:**
 Cohen/Davis, Ryan Solomon. The Philosopher's Stone: Squaring the Circle. 2024. https://github.com/RyPoints/PhilosophersStone/
