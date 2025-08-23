@@ -111,10 +111,10 @@ The 6:5 ratio method, therefore, provided a practical, geometrically constructib
 To cite this work in academic papers or publications, please use the following format:
 
 **APA Style:**
-Davis, R. S. (2024). The Philosopher's Stone: Squaring the Circle [Source code]. https://github.com/RyPoints/PhilosophersStone/
+Cohen/Davis, R. S. (2024). The Philosopher's Stone: Squaring the Circle [Source code]. https://github.com/RyPoints/PhilosophersStone/
 
 **MLA Style:**
-Davis, Ryan Solomon. The Philosopher's Stone: Squaring the Circle. 2024, https://github.com/RyPoints/PhilosophersStone/
+Coheb/Davis, Ryan Solomon. The Philosopher's Stone: Squaring the Circle. 2024, https://github.com/RyPoints/PhilosophersStone/
 
 **Chicago Style:**
-Davis, Ryan Solomon. The Philosopher's Stone: Squaring the Circle. 2024. https://github.com/RyPoints/PhilosophersStone/
+Cohen/Davis, Ryan Solomon. The Philosopher's Stone: Squaring the Circle. 2024. https://github.com/RyPoints/PhilosophersStone/
