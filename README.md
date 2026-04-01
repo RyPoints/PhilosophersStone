@@ -106,6 +106,8 @@ The 6:5 ratio method, therefore, provided a practical, geometrically constructib
 
 ![Wormhole](https://github.com/user-attachments/assets/7594175c-2b29-4a21-b72c-941ba651400b)
 
+> “In Manget there is a symbol, ascribed to the 'philosopher Malus,' which shows eyes in the stars, in the clouds, in the water and in the earth. The caption says: 'This stone is under you, and near you, and above you, and around you.' The eyes indicate that the lapis is in the process of evolution and grows from these ubiquitous eyes.” — Carl Gustav Jung, *Mysterium Coniunctionis*
+
 ## Citation Information
 
 To cite this work in academic papers or publications, please use the following format:
